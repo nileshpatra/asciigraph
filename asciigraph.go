@@ -29,7 +29,7 @@ func Plot(series []float64, options ...Option) string {
 	interval := math.Abs(maximum - minimum)
 
 	if config.Height <= 0 {
-		if int(interval) <= 0 {
+		if interval != 0 && int(interval) <= 0 {
 			config.Height = int(interval * math.Pow10(int(math.Ceil(-math.Log10(interval)))))
 		} else {
 			config.Height = int(interval)
